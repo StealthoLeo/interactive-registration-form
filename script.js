@@ -9,7 +9,6 @@ const passwordError = document.getElementById('passwordError');
 const confirmPasswordError = document.getElementById('confirmPasswordError');
 const STORAGE_KEY = 'savedUsername';
 
-// Load saved username on page load 
 document.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
@@ -23,7 +22,6 @@ username.addEventListener('input', () => {
   localStorage.setItem(STORAGE_KEY, username.value);
 });
 
-// Real-time validation: attach input listeners 
 [username, email, password, confirmPassword].forEach(input => {
   input.addEventListener('input', () => {
  // Update any custom validity rules first
