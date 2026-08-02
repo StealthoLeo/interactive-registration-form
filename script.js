@@ -93,19 +93,14 @@ function validateField(input) {
 }
 
 // On submit, prevent submission if invalid and show messages 
-form.addEventListener('submit', (e) => {
-  // Update custom validity for all fields before checking
+form.addEventListener('submit', (event) => {
   [username, email, password, confirmPassword].forEach(updateCustomValidity);
-
   if (!form.checkValidity()) {
-    e.preventDefault();
-    // Show messages for all fields
+    event.preventDefault();
     [username, email, password, confirmPassword].forEach(validateField);
-    // Focus the first invalid field for accessibility
     const firstInvalid = form.querySelector(':invalid');
     if (firstInvalid) firstInvalid.focus();
   } else {
     localStorage.setItem(STORAGE_KEY, username.value);
-    // Allow normal submission to proceed
   }
 });
