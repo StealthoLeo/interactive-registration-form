@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     username.value = saved;
- // Validate the prefilled value visually
     validateField(username);
   }
 });
